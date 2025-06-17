@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Jost', sans-serif;
+            background: url('kampus.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* ← ini untuk gelap 50% */
+            z-index: -1;
+        }
+
+        .wrapper {
+            display: flex;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 5px 20px 50px #000;
+            width: 800px;
+            max-width: 95%;
+        }
+
+        .image-side {
+            width: 50%;
+            background: url('pass2.svg') no-repeat center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .form-side {
+            width: 50%;
+            padding: 40px 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            text-align: left;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        input,
+        button {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+        }
+
+        input {
+            background: #e0dede;
+        }
+
+        button {
+            background: #0D1190;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3A3DCF;
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .link {
+            display: block;
+            text-align: center;
+            color: #573b8a;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+            }
+
+            .image-side,
+            .form-side {
+                width: 100%;
+                height: 250px;
+            }
+
+            .form-side {
+                height: auto;
+            }
+
+            .image-side {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="image-side"></div>
+
+        <div class="form-side">
+            <h2>Login</h2>
+            <form method="POST" action="login.php">
+                <!-- Hilangkan @csrf karena ini bukan blade -->
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <!-- Hilangkan pengecekan error dari blade, atau buat static saja -->
+                <!-- <div class="error-msg">Error message here</div> -->
+
+                <button type="submit">Login</button>
+            </form>
+
+            <a href="register.html" class="link">Don't have an account? Register here</a>
+        </div>
+    </div>
+</body>
+
+</html>
